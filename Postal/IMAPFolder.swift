@@ -28,6 +28,7 @@ import libetpan
 /// Representation of the folder
 public struct Folder {
     public let name: String
+    
     public let flags: FolderFlag
     
     let delimiter: String

@@ -27,9 +27,9 @@ import Result
 
 /// This class is the class where every request will be performed.
 open class Postal {
-    fileprivate let session: IMAPSession
-    fileprivate let queue: OperationQueue
-    fileprivate let configuration: Configuration
+    private let session: IMAPSession
+    private let queue: OperationQueue
+    private let configuration: Configuration
 
     /// Setting this variable will allow user to access to the internal logger.
     open var logger: Logger? {
