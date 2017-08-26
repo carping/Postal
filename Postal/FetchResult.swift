@@ -26,12 +26,12 @@ import Foundation
 
 /// The result of a fetch
 public struct FetchResult {
-    public fileprivate(set) var uid: UInt = 0
-    public fileprivate(set) var header: MessageHeader? = nil
-    public fileprivate(set) var flags: MessageFlag = []
-    public fileprivate(set) var body: MailPart?
-    public fileprivate(set) var rfc822Size: Int = 0
-    public fileprivate(set) var internalDate: Date? = nil
+    public  var uid: UInt = 0
+    public  var header: MessageHeader? = nil
+    public  var flags: MessageFlag = []
+    public  var body: MailPart?
+    public  var rfc822Size: Int = 0
+    public  var internalDate: Date? = nil
     
     // MARK: Gmail specific
     
@@ -67,8 +67,10 @@ struct FetchResultBuilder {
             case .uid(let uid):
                 hasUid = true
                 builtResult.uid = uid
-            case .envelope(let env): builtResult.header = env
-            case .flags(let flags): builtResult.flags = flags
+            case .envelope(let env):
+                builtResult.header = env
+            case .flags(let flags):
+                builtResult.flags = flags
             case .bodySection(let sec):
                 builtResult.header = sec.header
                 if flags.contains(.body) {

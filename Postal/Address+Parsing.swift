@@ -26,8 +26,9 @@ import Foundation
 import libetpan
 
 public struct Address {
-    public let email: String
-    public let displayName: String
+    public var email: String
+    public var displayName: String
+    
 }
 
 extension Address: CustomStringConvertible {
