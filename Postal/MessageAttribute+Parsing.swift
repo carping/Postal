@@ -54,7 +54,9 @@ extension MessageAttribute: CustomStringConvertible {
 extension mailimap_msg_att {
     func parse(_ builder: FetchResultBuilder) -> FetchResult? {
         sequence(att_list, of: mailimap_msg_att_item.self).forEach { item in
+            
             guard let parsed = item.parse else { return }
+            
             builder.addParsedAttribute(parsed)
         }
         
@@ -102,7 +104,9 @@ extension mailimap_msg_att_dynamic {
         guard att_list?.pointee != nil else { return nil }
         
         let flags: MessageFlag = sequence(att_list, of: mailimap_flag_fetch.self).reduce([]) { combined, flagFetch in
-            guard flagFetch.fl_type != Int32(MAILIMAP_FLAG_FETCH_OTHER) else { return combined }
+            
+//            guard flagFetch.fl_type != Int32(MAILIMAP_FLAG_FETCH_OTHER) else { return combined }
+            
             guard let flag = flagFetch.fl_flag?.pointee else { return combined }
             
             return [ combined, flag.toMessageFlag ]

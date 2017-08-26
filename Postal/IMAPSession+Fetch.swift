@@ -173,7 +173,7 @@ extension IMAPSession {
                 
                 fetchContext.hasMoreMessage = true
                 
-                guard let result = message?.pointee.parse(builder) else { return }
+                guard var result = message?.pointee.parse(builder) else { return }
                 
                 fetchContext.handler(result)
             }
