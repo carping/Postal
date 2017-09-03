@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
     sp.preserve_paths = 'dependencies'
 
     sp.libraries = 'etpan', 'sasl2', 'z', 'iconv'
-    sp.dependency  'Postal', git: 'https://github.com/carping/Result.git'
+    sp.dependency  'Postal', :git=> 'https://github.com/carping/Result.git'
   end
 
   s.subspec 'ReactiveCocoa' do |sp|
