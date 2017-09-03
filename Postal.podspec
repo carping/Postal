@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
 
-  s.source = { :git => 'https://github.com/snipsco/Postal.git', :tag => 'v' + s.version.to_s }
+  s.source = { :git => 'https://github.com/carping/Postal.git', :tag => 'v' + s.version.to_s }
   
   s.default_subspec = 'Core'
 
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
     sp.preserve_paths = 'dependencies'
 
     sp.libraries = 'etpan', 'sasl2', 'z', 'iconv'
-    sp.dependency 'Result', '~> 3.1.0'
+    sp.dependency  'Postal', git: 'https://github.com/carping/Result.git'
   end
 
   s.subspec 'ReactiveCocoa' do |sp|
